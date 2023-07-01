@@ -3,7 +3,7 @@ const NewRecord = () => {
 
     return(
         <>
-        <h1 className="govuk-caption-m">Add record</h1>
+        <h1 className="govuk-heading-l">New record</h1>
         </>
     )
 }
