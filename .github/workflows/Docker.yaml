@@ -28,6 +28,12 @@ jobs:
       - run: npm run test
       - run: npm run build --if-present
 
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker BuildX
+        uses: docker/setup-buildx-action@v2
+
       - name: Create TAGS
         run: |
             if [ "$GITHUB_REF_NAME" = "main" ]
@@ -65,7 +71,7 @@ jobs:
         with:
           username: ${{ secrets.QUAY_ROBOT_NAME }}
           password: ${{ secrets.QUAY_ROBOT_TOKEN }}
-          registry: ${{ env.DOCKER_REGISTRY }}
+          registry: ${{ env.QUAY_REGISTRY }}
 
       - name: Build and push
         uses: docker/build-push-action@v4
