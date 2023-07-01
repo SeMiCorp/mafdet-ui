@@ -39,7 +39,7 @@ const Header = () => {
               className="govuk-header__link govuk-header__link--service-name govuk-!-margin-top-2"
               style={{ color: '#000' }}
             >
-              Catsus - Census for Cats
+              Mafdet
             </Link>
             <SignIn />
           </div>
