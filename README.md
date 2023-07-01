@@ -2,7 +2,7 @@
 
 Demo UI app for LocalDev solution. This app is a sort of census for cats (yeah, cats).
 
-`Mafdet` (also Mefdet, Maftet) was a goddess in the ancient Egyptian religion. She was often depicted wearing a skin of a cheetah, and protected against the bite of snakes and scorpions.
+`Mafdet` (also Mefdet, Maftet) was a goddess in the ancient Egyptian religion. She was often depicted wearing a skin of a cheetah, and protected against the bite of snakes and scorpions (just like our cats do).
 
 ## Running app locally (manually)
 - install dependencies with `npm install`
