@@ -1,4 +1,4 @@
-import HomeOfficeLogo from './HomeOfficeLogo';
+import CatOfficeLogo from './CatOfficeLogo';
 import PhaseBanner from '../phase-banner/PhaseBanner';
 import { useState } from 'react';
 import SignIn from './SignIn';
@@ -30,7 +30,7 @@ const Header = () => {
           style={{ borderBottom: 0 }}
         >
           <div className="govuk-header__logo govuk-!-margin-top-1 govuk-!-margin-bottom-0">
-            <HomeOfficeLogo />
+            <CatOfficeLogo />
           </div>
           <div className="govuk-header__content">
            
