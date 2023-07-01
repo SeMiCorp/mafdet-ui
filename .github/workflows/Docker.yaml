@@ -13,6 +13,7 @@ jobs:
       VITE_KC_CLIENTID: "mafdetreactclientid"
       QUAY_REGISTRY: quay.io/semicorp
       QUAY_REPO_NAME: mafdet-ui
+      IMAGE_TAG: latest
 
     steps:
       - uses: actions/checkout@v2
@@ -27,23 +28,27 @@ jobs:
       - run: npm run test
       - run: npm run build --if-present
 
-      - name: Get Image Tag
-        id: image-tags
+      - name: Create TAGS
         run: |
-            if [ "$GITHUB_REF_NAME" = "main" ]; then
-              echo "image_tag=latest" >> $GITHUB_ENV
+            if [ "$GITHUB_REF_NAME" = "master" ]
+            then
+              TAG=latest
+            elif [[ $GITHUB_REF_NAME =~ (ticket-[0-9]*) ]]
+            then
+              TAG=${match/#E/E}${BASH_REMATCH/#E/E}
+            else
+              TAG=${GITHUB_SHA}
             fi
-            if [[ $GITHUB_REF_NAME =~ (issue-[0-9]*) ]] && TAG=${match/#E/E}${BASH_REMATCH/#E/E}; then
-              echo "image_tag=${TAG}" >> $GITHUB_ENV
-            fi
-      - name: Build Image
-        id: build-image
-        uses: redhat-actions/buildah-build@v2
-        with:
-          image: ${{ env.QUAY_REPO_NAME }}
-          tags: ${{ env.image_tag }}
-          containerfiles: |
-              ./Dockerfile
+            echo "IMAGE_TAG=$TAG" >> $GITHUB_ENV
+
+#      - name: Build Image
+#        id: build-image
+#        uses: redhat-actions/buildah-build@v2
+#        with:
+#          image: ${{ env.QUAY_REPO_NAME }}
+#          tags: ${{ env.image_tag }}
+#          containerfiles: |
+#              ./Dockerfile
 
 #      - name: Push image to Quay
 #        id: push-to-quay
