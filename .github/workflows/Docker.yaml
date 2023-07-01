@@ -77,7 +77,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: src/main/docker/Dockerfile
+          file: Dockerfile
           platforms: |
               linux/amd64
               linux/arm64
