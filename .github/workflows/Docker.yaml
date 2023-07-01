@@ -1,0 +1,59 @@
+name: Build docker image
+on:
+  push:
+    branches:
+      - main
+      - '**issue-**'
+jobs:
+  build-docker-images:
+    runs-on: ubuntu-latest
+    env:
+      VITE_KC_URL: "http://localhost:8080/auth/"
+      VITE_KC_REALM: "mafdetrealm"
+      VITE_KC_CLIENTID: "mafdetreactclientid"
+      QUAY_REGISTRY: quay.io/semicorp
+      QUAY_REPO_NAME: mafdet-ui
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.15.0'
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run test
+      - run: npm run build --if-present
+
+      - name: Get Image Tag
+        id: image-tags
+        run: |
+            if [ "$GITHUB_REF_NAME" = "main" ]; then
+              echo "image_tag=latest" >> $GITHUB_ENV
+            fi
+            if [[ $GITHUB_REF_NAME =~ (issue-[0-9]*) ]] && TAG=${match/#E/E}${BASH_REMATCH/#E/E}; then
+              echo "image_tag=${TAG}" >> $GITHUB_ENV
+            fi
+      - name: Build Image
+        id: build-image
+        uses: redhat-actions/buildah-build@v2
+        with:
+          image: ${{ env.QUAY_REPO_NAME }}
+          tags: ${{ env.image_tag }}
+          containerfiles: |
+              ./dockerfile
+
+      - name: Push image to Quay
+        id: push-to-quay
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          image: ${{ steps.build-image.outputs.image }}
+          tags: ${{ steps.build-image.outputs.tags }}
+          registry: ${{ env.QUAY_REGISTRY}}
+          username: ${{ secrets.QUAY_ROBOT_NAME }}
+          password: ${{ secrets.QUAY_ROBOT_TOKEN }}
+
+      - name: Print image url
+        run: echo "Image pushed to ${{ steps.push-to-quay.outputs.registry-paths }}"

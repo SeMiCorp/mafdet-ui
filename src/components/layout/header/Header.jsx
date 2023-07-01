@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
 const Header = () => {
-  const [toggleMenu, setToggleMenu] = useState(false);
+  const [toggleMenu] = useState(false);
 
   return (
     <>
