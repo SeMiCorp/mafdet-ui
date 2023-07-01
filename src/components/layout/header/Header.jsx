@@ -76,7 +76,7 @@ const Header = () => {
               >
                 <Link
                   className="govuk-header__link"
-                  to={`/cat`}
+                  to={`/new-record`}
                   style={{ color: '#000' }}
                   id="header-record-time-link"
                 >
