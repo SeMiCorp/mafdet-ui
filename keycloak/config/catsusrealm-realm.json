@@ -1,6 +1,6 @@
 {
-  "id": "catsusrealm",
-  "realm": "catsusrealm",
+  "id": "mafdetrealm",
+  "realm": "mafdetrealm",
   "notBefore": 0,
   "defaultSignatureAlgorithm": "RS256",
   "revokeRefreshToken": false,
@@ -51,7 +51,7 @@
         "description": "${role_offline-access}",
         "composite": false,
         "clientRole": false,
-        "containerId": "catsusrealm",
+        "containerId": "mafdetrealm",
         "attributes": {}
       },
       {
@@ -60,12 +60,12 @@
         "description": "${role_uma_authorization}",
         "composite": false,
         "clientRole": false,
-        "containerId": "catsusrealm",
+        "containerId": "mafdetrealm",
         "attributes": {}
       },
       {
         "id": "802fc39b-326b-432a-9731-443b1d40d05c",
-        "name": "default-roles-catsusrealm",
+        "name": "default-roles-mafdetrealm",
         "description": "${role_default-roles}",
         "composite": true,
         "composites": {
@@ -81,7 +81,7 @@
           }
         },
         "clientRole": false,
-        "containerId": "catsusrealm",
+        "containerId": "mafdetrealm",
         "attributes": {}
       }
     ],
@@ -298,7 +298,7 @@
           "attributes": {}
         }
       ],
-      "catsusreactclientid": [],
+      "mafdetreactclientid": [],
       "security-admin-console": [],
       "admin-cli": [],
       "account-console": [],
@@ -397,11 +397,11 @@
   "groups": [],
   "defaultRole": {
     "id": "802fc39b-326b-432a-9731-443b1d40d05c",
-    "name": "default-roles-catsusrealm",
+    "name": "default-roles-mafdetrealm",
     "description": "${role_default-roles}",
     "composite": true,
     "clientRole": false,
-    "containerId": "catsusrealm"
+    "containerId": "mafdetrealm"
   },
   "requiredCredentials": [
     "password"
@@ -444,7 +444,7 @@
     {
       "id": "9e47cf29-1598-4269-aa31-db1d2e4e0207",
       "createdTimestamp": 1651823570603,
-      "username": "catsususer",
+      "username": "mafdetuser",
       "enabled": true,
       "totp": false,
       "emailVerified": false,
@@ -459,7 +459,7 @@
       ],
       "disableableCredentialTypes": [],
       "requiredActions": [],
-      "realmRoles": ["default-roles-catsusrealm"],
+      "realmRoles": ["default-roles-mafdetrealm"],
       "notBefore": 0,
       "groups": []
     }
@@ -488,13 +488,13 @@
       "clientId": "account",
       "name": "${client_account}",
       "rootUrl": "${authBaseUrl}",
-      "baseUrl": "/realms/catsusrealm/account/",
+      "baseUrl": "/realms/mafdetrealm/account/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "/realms/catsusrealm/account/*"
+        "/realms/mafdetrealm/account/*"
       ],
       "webOrigins": [],
       "notBefore": 0,
@@ -529,13 +529,13 @@
       "clientId": "account-console",
       "name": "${client_account-console}",
       "rootUrl": "${authBaseUrl}",
-      "baseUrl": "/realms/catsusrealm/account/",
+      "baseUrl": "/realms/mafdetrealm/account/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "/realms/catsusrealm/account/*"
+        "/realms/mafdetrealm/account/*"
       ],
       "webOrigins": [],
       "notBefore": 0,
@@ -653,7 +653,7 @@
     },
     {
       "id": "1e09331d-03fb-4a35-8cfb-5896b0085814",
-      "clientId": "catsusreactclientid",
+      "clientId": "mafdetreactclientid",
       "rootUrl": "http://localhost:3000/",
       "adminUrl": "http://localhost:3000/",
       "surrogateAuthRequired": false,
@@ -774,13 +774,13 @@
       "clientId": "security-admin-console",
       "name": "${client_security-admin-console}",
       "rootUrl": "${authAdminUrl}",
-      "baseUrl": "/admin/catsusrealm/console/",
+      "baseUrl": "/admin/mafdetrealm/console/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "/admin/catsusrealm/console/*"
+        "/admin/mafdetrealm/console/*"
       ],
       "webOrigins": [
         "+"
