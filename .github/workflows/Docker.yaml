@@ -8,7 +8,7 @@ jobs:
   build-docker-images:
     runs-on: ubuntu-latest
     env:
-      VITE_KC_URL: "http://localhost:8080/auth/" # Keycloak URL
+      VITE_KC_URL: "https://keycloak.callisto.localhost/auth"s # Keycloak URL
       VITE_KC_REALM: "mafdetrealm" # Keycloak realm
       VITE_KC_CLIENTID: "mafdetreactclientid" # Keycloak client id
       QUAY_REGISTRY: quay.io/semicorp
