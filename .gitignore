@@ -2,6 +2,9 @@
 
 # dependencies
 /node_modules
+/node_modules_linux
+node_modules_linux
+node_modules
 /.pnp
 .pnp.js
 
@@ -21,3 +24,25 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Logs
+logs
+*.log
+
+# Build
+dist
+dist-ssr
+*.local
+
+# Mac
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# json-server db
+db.json
+
+#APIs
+start-timecard-api.ps1
