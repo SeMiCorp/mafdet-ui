@@ -32,9 +32,9 @@ export default defineConfig((config) => {
       proxy: {
         
       },
-      port: 3000,
+      port: 9090,
       hmr: {
-        clientPort: 3000,
+        clientPort: 443,
       },
       host: true
     },
