@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {getCats} from "../../api/services/catsService";
 
 const Records = () => {
