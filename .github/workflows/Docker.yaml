@@ -11,6 +11,7 @@ jobs:
       VITE_KC_URL: "https://keycloak.mafdet.localhost/auth" # Keycloak URL
       VITE_KC_REALM: "mafdet" # Keycloak realm
       VITE_KC_CLIENTID: "mafdetreactclient" # Keycloak client id
+      VITE_CATS_API_URL: "https://cats-restapi.mafdet.localhost/"
       QUAY_REGISTRY: quay.io/semicorp
       QUAY_REPO_NAME: mafdet-ui
       IMAGE_TAG: latest

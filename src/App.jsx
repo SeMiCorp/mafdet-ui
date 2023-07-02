@@ -6,6 +6,7 @@ import Header from './components/layout/header/Header';
 import Home from './pages/Home';
 import Footer from './components/layout/footer/Footer';
 import NewRecord from './pages/record/NewRecord';
+import Records from "./pages/record/Records";
 
 const App = () => {
   const { initialized, keycloak } = useKeycloak();
@@ -25,6 +26,7 @@ const App = () => {
             <Routes>
               <Route index="true" element={<Home />} />
               <Route path="/new-record" element={<NewRecord />} />
+              <Route path="/records" element={<Records />} />
             </Routes>
           </main>
         </div>

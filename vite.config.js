@@ -14,6 +14,11 @@ export default defineConfig((config) => {
     return proxyToUrl;
   };
 
+  const catsApiConfig = {
+    target: getUrl('TIMECARD'),
+    changeOrigin: true,
+    xfwd: true,
+  };
   
   return {
     plugins: [react()],
@@ -30,7 +35,7 @@ export default defineConfig((config) => {
     },
     server: {
       proxy: {
-        
+        '/resources/cats': catsApiConfig,
       },
       port: 9090,
       hmr: {

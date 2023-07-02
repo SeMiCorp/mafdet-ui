@@ -83,6 +83,19 @@ const Header = () => {
                   New record
                 </Link>
               </li>
+              <li
+                  id="header-record-time-link"
+                  className="govuk-header__navigation-item govuk-header__navigation-item"
+              >
+                <Link
+                    className="govuk-header__link"
+                    to={`/records`}
+                    style={{ color: '#000' }}
+                    id="header-record-time-link"
+                >
+                  Records
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>
