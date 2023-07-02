@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Footer from './components/layout/footer/Footer';
 import NewRecord from './pages/record/NewRecord';
 import Records from "./pages/record/Records";
+import RecordDetails from "./pages/record/RecordDetails";
 
 const App = () => {
   const { initialized, keycloak } = useKeycloak();
@@ -16,6 +17,10 @@ const App = () => {
       await keycloak.login();
     }
   });
+
+  useEffect(()=> {
+      console.log("Page Reload")
+  },[])
 
   return keycloak.authenticated ? (
     <BrowserRouter>
@@ -27,6 +32,7 @@ const App = () => {
               <Route index="true" element={<Home />} />
               <Route path="/new-record" element={<NewRecord />} />
               <Route path="/records" element={<Records />} />
+              <Route path="/records/:id" element={<RecordDetails />} />
             </Routes>
           </main>
         </div>

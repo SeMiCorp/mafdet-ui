@@ -15,7 +15,7 @@ export default defineConfig((config) => {
   };
 
   const catsApiConfig = {
-    target: getUrl('TIMECARD'),
+    target: getUrl('CATS'),
     changeOrigin: true,
     xfwd: true,
   };
